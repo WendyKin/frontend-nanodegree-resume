@@ -182,6 +182,22 @@
 			$(".education-entry:last").append(formattedschoolMajor);
 
 		}
+
+		for (course = 0; course < education.onlineCourses.length; course++) {
+			$(".education-entry:last").append(HTMLonlineClasses);
+
+			var formattedcourseurl = HTMLonlineTitle.replace("#",education.onlineCourses[course].url);
+			var formattedonlineTitle = formattedcourseurl.replace("%data%", education.onlineCourses[course].title);
+			var formattedonlineschool = HTMLonlineSchool.replace("%data%", education.onlineCourses[course].school);
+			$(".education-entry:last").append(formattedonlineTitle + formattedonlineschool);
+
+			var formattedcourseDates = HTMLonlineDates.replace("%data%", education.onlineCourses[course].dates);
+			$(".education-entry:last").append(formattedcourseDates);
+
+			var formattedcourseurl = HTMLonlineURL.replace("#",education.onlineCourses[course].url);
+			var formattedonlinecourseurl = formattedcourseurl.replace("%data%",education.onlineCourses[course].url);
+			$(".education-entry:last").append(formattedonlinecourseurl);
+		}
 	}
 
 	education.display();
