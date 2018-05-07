@@ -104,6 +104,11 @@ a {
   display: none;
 }
 
+h3 {
+  padding-left: 0;
+  margin-top: 20px;
+}
+
 .orange {
   background-color: #f5ae23;
 }
@@ -198,6 +203,9 @@ span {
   }
   .welcome-message {
     display: none;
+  }
+  .project-entry img {
+    width: 90%;
   }
 }
 
