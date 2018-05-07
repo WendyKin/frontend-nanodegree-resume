@@ -1,75 +1,75 @@
 	var bio = {
-		"name": "Wendy Jin",
-		"role": "Web Developer",
-		"welcomeMessage": "welcome to my resume page",
-		"contacts": {
-			"mobile": "1234-5678",
-			"email": "jin@example.com",
-			"github": "jin",
-			"twitter": "@jin",
-			"location": "Shanghai"
+		name: "Wendy Jin",
+		role: "Web Developer",
+		welcomeMessage: "welcome to my resume page",
+		contacts: {
+			mobile: "1234-5678",
+			email: "jin@example.com",
+			github: "jin",
+			twitter: "@jin",
+			location: "Shanghai"
 		},
-		"skills": [
+		skills: [
 		"Using photoshop", "Japanese translation", "Singing", "Drawing"
 		],
-		"bioPic": "images/me.jpg"
+		biopic: "images/me.jpg"
 	}
 
 	var education = {
-		"schools" : [
+		schools: [
 		{
-			"name": "Shanghai Jiaotong University",
-			"location": "Shanghai",
-			"degree": "Masters",
-			"majors": ["DESIGN & ARTS"],
-			"dates": 2010,
-			"url": "http://example1.com"
+			name: "Shanghai Jiaotong University",
+			location: "Shanghai",
+			degree: "Masters",
+			majors: ["DESIGN & ARTS"],
+			dates: "2007 - 2010",
+			url: "http://example1.com"
 		},
 		{
-			"name": "Shanghai Jiaotong University",
-			"location": "Shanghai",
-			"degree": "BA",
-			"majors": ["INDUSTRUAL DESIGN"] ,
-			"dates": 2007,
-			"url": "http://example2.com"
+			name: "Shanghai Jiaotong University",
+			location: "Shanghai",
+			degree: "BA",
+			majors: ["INDUSTRUAL DESIGN"] ,
+			dates: "2007 - 2010",
+			url: "http://example2.com"
 		},
 		],
-		"onlineCourses": [
+		onlineCourses: [
 		{
-			"title": "JavaScript Crash Course",
-			"school": "Udacity",
-			"dates": 2018,
-			"url": "http://www.udacity.com/nanodegrees/nd001-cn-basic"
+			title: "JavaScript Crash Course",
+			school: "Udacity",
+			dates: "2017 - 2018",
+			url: "http://www.udacity.com/nanodegrees/nd001-cn-basic"
 		}
 		]
 	}
 
 	var work = {
-		"jobs": [
+		jobs: [
 		{
-			"employer": "Beijing News Co. Ltd.",
-			"title": "Art Editor",
-			"location": "Beijing",
-			"dates": "May 2010 - May 2010 ",
-			"description": "I worked for the News company to do netpage design. "
+			employer: "Beijing News Co. Ltd.",
+			title: "Art Editor",
+			location: "Beijing",
+			dates: "May 2010 - May 2010 ",
+			description: "I worked for the News company to do netpage design. "
 		},
 		{
-			"employer": "Shanghai Securities Co. Ltd.",
-			"title": "Web Developer",
-			"location": "Shanghai",
-			"dates": "May 2015 - Future",
-			"description": "I'm working for the Securities company to do netpage design, H5, coding html & javascript. "
+			employer: "Shanghai Securities Co. Ltd.",
+			title: "Web Developer",
+			location: "Shanghai",
+			dates: "May 2015 - Future",
+			description: "I'm working for the Securities company to do netpage design, H5, coding html & javascript. "
 		}
 		]
 	}
 
 	var projects = {
-		"projects": [
+		projects: [
 		{
-			"title": "Sample Project 1",
-			"dates": "2018",
-			"description": "My Resume's sample",
-			"images": [
+			title: "Sample Project 1",
+			dates: "2017 - 2018",
+			description: "My Resume's sample",
+			images: [
 			"images/ps1.jpg",
 			"images/ps2.jpg"
 			]
@@ -86,29 +86,24 @@
 
 
 		var formattedMobile = HTMLmobile.replace("%data%",bio.contacts.mobile);
-		$("#topContacts").append(formattedMobile);
-		$("#footerContacts").append(formattedMobile);
+		$("#topContacts, #footerContacts").append(formattedMobile);
 
 		var formattedEmail = HTMLemail.replace("%data%",bio.contacts.email);
-		$("#topContacts").append(formattedEmail);
-		$("#footerContacts").append(formattedEmail);
+		$("#topContacts, #footerContacts").append(formattedEmail);
 
 		var formattedTwitter = HTMLtwitter.replace("%data%",bio.contacts.twitter);
-		$("#topContacts").append(formattedTwitter);
-		$("#footerContacts").append(formattedTwitter);
+		$("#topContacts, #footerContacts").append(formattedTwitter);
 		
 		var formattedGithub = HTMLgithub.replace("%data%",bio.contacts.github);
-		$("#topContacts").append(formattedGithub);
-		$("#footerContacts").append(formattedGithub);
+		$("#topContacts, #footerContacts").append(formattedGithub);
 
 		var formattedLocation = HTMLlocation.replace("%data%",bio.contacts.location);
-		$("#topContacts").append(formattedLocation);
-		$("#footerContacts").append(formattedLocation);
+		$("#topContacts, #footerContacts").append(formattedLocation);
 
 		var formattedWelcomeMsg = HTMLwelcomeMsg.replace("%data%",bio.welcomeMessage);
 		$("#header").append(formattedWelcomeMsg);
 		
-		var formattedBioPic = HTMLbioPic.replace("%data%",bio.bioPic);
+		var formattedBioPic = HTMLbioPic.replace("%data%",bio.biopic);
 		$("#header").append(formattedBioPic);
 
 		$("#header").append(HTMLskillsStart);
@@ -122,7 +117,7 @@
 	bio.display();
 
 	work.display = function() {
-		for (job = 0; job < work.jobs.length; job++) {
+		for (var job = 0; job < work.jobs.length; job++) {
 
 			$("#workExperience").append(HTMLworkStart);
 
@@ -144,7 +139,7 @@
 	work.display();
 
 	projects.display = function() {
-		for (project = 0; project < projects.projects.length; project++) {
+		for (var project = 0; project < projects.projects.length; project++) {
 			$("#projects").append(HTMLprojectStart);
 
 			var formattedTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
@@ -157,7 +152,7 @@
 			$(".project-entry:last").append(formattedDescription);
 
 			if (projects.projects[project].images.length > 0) {
-				for (image = 0; image < projects.projects[project].images.length; image++) {
+				for (var image = 0; image < projects.projects[project].images.length; image++) {
 					var formattedImage = HTMLprojectImage.replace("%data%", projects.projects[project].images[image]);
 					$(".project-entry:last").append(formattedImage);
 				}
@@ -169,7 +164,7 @@
 
 
 	education.display = function() {
-		for (school = 0; school< education.schools.length; school++) {
+		for (var school = 0; school< education.schools.length; school++) {
 			$("#education").append(HTMLschoolStart);
 
 			var formattedschoolurl = HTMLschoolName.replace("#",education.schools[school].url);
@@ -188,7 +183,7 @@
 
 		}
 
-		for (course = 0; course < education.onlineCourses.length; course++) {
+		for (var course = 0; course < education.onlineCourses.length; course++) {
 			$(".education-entry:last").append(HTMLonlineClasses);
 
 			var formattedcourseurl = HTMLonlineTitle.replace("#",education.onlineCourses[course].url);
